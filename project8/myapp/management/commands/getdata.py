@@ -37,7 +37,10 @@ def get_product(category, url):
             new_entry["name"] = product["product_name_fr"]
             new_entry["category"] = category
             new_entry["url_offacts"] = product["url"]
-            new_entry["energy_value"] = float(product["nutriments"]["energy_value"])
+            try:
+                new_entry["energy_value"] = float(product["nutriments"]["energy_value"])
+            except Exception as e:
+                print(e)
             new_entry["energy_unit"] = product["nutriments"]["energy_unit"]
             new_entry["sugars_100g"] = float(product["nutriments"]["sugars_100g"])
             new_entry["fat_100g"] = float(product["nutriments"]["fat_100g"])
