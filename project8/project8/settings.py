@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'project8.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'project8',
-        'USER': 'jeremiev',
-        'PASSWORD': '',
-        'HOST': '',
+        'NAME': 'p9db',
+        'USER': 'user1',
+        'PASSWORD': 'newSally_9',
+        'HOST': 'localhost',
         'PORT': '5432'
     }
 }
