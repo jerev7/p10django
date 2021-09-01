@@ -36,29 +36,29 @@ def get_product(category, url):
             new_entry["category"] = category
             new_entry["url_offacts"] = product["url"]
             try:
-                new_entry["energy_value"] = float(product["nutriments"]["energy_value"])
+                new_entry["energy_value"] = str(product["nutriments"]["energy_value"])
             except:
-                new_entry["energy_value"] = 0
+                new_entry["energy_value"] = "not found"
             try:
                 new_entry["energy_unit"] = product["nutriments"]["energy_unit"]
             except:
                 new_entry["energy_unit"] = "not found"
             try:    
-                new_entry["sugars_100g"] = float(product["nutriments"]["sugars_100g"])
+                new_entry["sugars_100g"] = str(product["nutriments"]["sugars_100g"])
             except:
-                new_entry["sugars_100g"] = 0
+                new_entry["sugars_100g"] = "not found"
             try:
-                new_entry["fat_100g"] = float(product["nutriments"]["fat_100g"])
+                new_entry["fat_100g"] = str(product["nutriments"]["fat_100g"])
             except:
-                new_entry["fat_100g"] = 0
+                new_entry["fat_100g"] = "not found"
             try:
-                new_entry["saturated_fat_100g"] = float(product["nutriments"]["saturated-fat_100g"])
+                new_entry["saturated_fat_100g"] = str(product["nutriments"]["saturated-fat_100g"])
             except:
-                new_entry["saturated_fat_100g"] = 0
+                new_entry["saturated_fat_100g"] = "not found"
             try:
-                new_entry["proteins"] = float(product["nutriments"]["proteins"])
+                new_entry["proteins"] = str(product["nutriments"]["proteins"])
             except:
-                new_entry["proteins"] = 0
+                new_entry["proteins"] = "not found"
             if "nutrition_grades" in product:
                 new_entry["nutriscore"] = nutrition_grade_list.index(product["nutrition_grades"])
             else:
