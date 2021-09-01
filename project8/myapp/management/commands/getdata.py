@@ -37,24 +37,18 @@ def get_product(category, url):
             new_entry["name"] = product["product_name_fr"]
             new_entry["category"] = category
             new_entry["url_offacts"] = product["url"]
-            new_entry["energy_value"] = float(product["nutriments"]
-                                              ["energy_value"])
+            new_entry["energy_value"] = float(product["nutriments"]["energy_value"])
             new_entry["energy_unit"] = product["nutriments"]["energy_unit"]
-            new_entry["sugars_100g"] = float(product["nutriments"]
-                                             ["sugars_100g"])
+            new_entry["sugars_100g"] = float(product["nutriments"]["sugars_100g"])
             new_entry["fat_100g"] = float(product["nutriments"]["fat_100g"])
-            new_entry["saturated_fat_100g"] = float(product["nutriments"]
-                                                    ["saturated-fat_100g"])
+            new_entry["saturated_fat_100g"] = float(product["nutriments"]["saturated-fat_100g"])
             new_entry["proteins"] = float(product["nutriments"]["proteins"])
             if "nutrition_grades" in product:
-                new_entry["nutriscore"] = (nutrition_grade_list
-                                           .index(product["nutrition_grades"]))
+                new_entry["nutriscore"] = (nutrition_grade_list.index(product["nutrition_grades"]))
             else:
                 new_entry["nutriscore"] = 4
-            new_entry["nutriscore_letter_url"] = (nutriscore_letter_url
-                                                  [new_entry["nutriscore"]])
-            new_entry["nutriscore_complete_url"] = (nutriscore_complete_url
-                                                    [new_entry["nutriscore"]])
+            new_entry["nutriscore_letter_url"] = (nutriscore_letter_url[new_entry["nutriscore"]])
+            new_entry["nutriscore_complete_url"] = (nutriscore_complete_url[new_entry["nutriscore"]])
             if "image_front_url" in product:
                 new_entry["image_url"] = product["image_front_url"]
             else:
@@ -90,12 +84,11 @@ def add_products_to_db(product_list):
 
 
 class Command(BaseCommand):
-
     help = "Get the data to fill database"
 
     def add_arguments(self, parser):
         pass
 
     def handle(self, *args, **options):
-        add_products_to_db(get_product("pates-a-tartiner-aux-noisettes","https://fr.openfoodfacts.org/categorie/pates-a-tartiner-aux-noisettes/1.json")
-        self.stdout.write(self.style.SUCCESS('Successfully inserted in database'))
+        add_products_to_db(get_product("pates-a-tartiner-aux-noisettes", "https://fr.openfoodfacts.org/categorie/pates-a-tartiner-aux-noisettes/1.json")
+        self.stdout.write(self.style.SUCCESS("Successfully inserted in database"))
