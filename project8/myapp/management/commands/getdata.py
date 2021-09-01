@@ -102,6 +102,4 @@ class Command(BaseCommand):
                                         "categorie/pates-a-"
                                         "tartiner-aux-noisettes/"
                                         "1.json"))
-
-        self.stdout.write(self.style
-                          .SUCCESS('Successfully inserted in database'))
+        self.stdout.write(self.style.SUCCESS('Successfully inserted in database'))
