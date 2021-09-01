@@ -1,6 +1,6 @@
 from myapp.models import Category, Products
 import requests
-from django.core.management.base import BaseCommand, 
+from django.core.management.base import BaseCommand
 
 
 """
@@ -92,3 +92,4 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         add_products_to_db(get_product("pates-a-tartiner-aux-noisettes", "https://fr.openfoodfacts.org/categorie/pates-a-tartiner-aux-noisettes/1.json")
+        self.stdout.write(self.style.SUCCESS("Successfully inserted in database"))
