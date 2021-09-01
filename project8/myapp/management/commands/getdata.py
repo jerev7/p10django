@@ -5,11 +5,8 @@ from django.core.management.base import BaseCommand, CommandError
 
 """
 code working for this url :
-url = 'https://fr.openfoodfacts.org/categorie\
-      /pates-a-tartiner-aux-noisettes/1.json'
+url = https://fr.openfoodfacts.org/categorie/pates-a-tartiner-aux-noisettes/1.json
 """
-
-
 def get_product(category, url):
 
     final_list = []
@@ -31,6 +28,7 @@ def get_product(category, url):
     ]
     response = requests.get(url)
     my_products = response.json()["products"]
+    # i = 0
     for product in my_products:
         if 'product_name_fr' in product and product["product_name_fr"] != "":
             new_entry = {}
@@ -44,19 +42,23 @@ def get_product(category, url):
             new_entry["saturated_fat_100g"] = float(product["nutriments"]["saturated-fat_100g"])
             new_entry["proteins"] = float(product["nutriments"]["proteins"])
             if "nutrition_grades" in product:
-                new_entry["nutriscore"] = (nutrition_grade_list.index(product["nutrition_grades"]))
+                new_entry["nutriscore"] = nutrition_grade_list.index(product["nutrition_grades"])
             else:
                 new_entry["nutriscore"] = 4
-            new_entry["nutriscore_letter_url"] = (nutriscore_letter_url[new_entry["nutriscore"]])
-            new_entry["nutriscore_complete_url"] = (nutriscore_complete_url[new_entry["nutriscore"]])
+            new_entry["nutriscore_letter_url"] = nutriscore_letter_url[new_entry["nutriscore"]]
+            new_entry["nutriscore_complete_url"] = nutriscore_complete_url[new_entry["nutriscore"]]
             if "image_front_url" in product:
                 new_entry["image_url"] = product["image_front_url"]
             else:
-                new_entry["image_url"] = "myapp/assets/img/image_not_found.png"
+                new_entry["image_url"] = "myapp/assets/img/image_not_found.png" # mettre chaine vide et mettre le lien dans le front
             # i += 1
             # new_entry["compte"] = i
             final_list.append(new_entry)
     return final_list
+
+
+
+# print(get_product("pates-a-tartiner-aux-noisettes", "https://fr.openfoodfacts.org/categorie/pates-a-tartiner-aux-noisettes/1.json"))
 
 
 def add_products_to_db(product_list):
@@ -82,14 +84,14 @@ def add_products_to_db(product_list):
             category = category_check[0]
         new_product.categories.add(category)
 
-
 class Command(BaseCommand):
+
     help = "Get the data to fill database"
 
     def add_arguments(self, parser):
         pass
 
     def handle(self, *args, **options):
-
         add_products_to_db(get_product("pates-a-tartiner-aux-noisettes", "https://fr.openfoodfacts.org/categorie/pates-a-tartiner-aux-noisettes/1.json"))
-        self.stdout.write(self.style.SUCCESS("Successfully inserted in database"))
+
+        self.stdout.write(self.style.SUCCESS('Successfully inserted in database'))
