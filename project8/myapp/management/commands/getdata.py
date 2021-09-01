@@ -1,6 +1,6 @@
 from myapp.models import Category, Products
 import requests
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 
 
 """
