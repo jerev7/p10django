@@ -10,6 +10,6 @@ class Command(BaseCommand):
         pass
 
     def handle(self, *args, **options):
-    	Products.objects.all().delete()
-    	Category.objects.all().delete()
+        Products.objects.all().delete()
+        Category.objects.all().delete()
         self.stdout.write(self.style.SUCCESS('All data from Products and Category has been deleted'))
