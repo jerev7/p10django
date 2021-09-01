@@ -1,0 +1,14 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<header class="second1 bg-primary" id="about">
+  <div class="container">
+    <div class="row justify-content-center" style="margin: 15px">
+      <h2 class="text-white mt-0">Félicitations ! Votre compte a bien été créé !</h2>
+    </div>
+    <div class="row justify-content-center">
+      <p class="text-white-75">Vous pouvez vous connecter <a href="{% url 'login' %}">ici</a></p>
+    </div>
+  </div>
+</header>
+{% endblock %}

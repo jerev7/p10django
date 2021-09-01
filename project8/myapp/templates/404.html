@@ -1,0 +1,15 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+{% load static %}
+<header class="masthead">
+  <div class="container h-100">
+    <p class="text-white font-weight-light mb-5" style="margin-top: 15px"><em>La recherche n'a donné aucun resultat...</em></p>
+    <p class="text-white font-weight-light mb-5">Le produit que vous recherchez n'existe pas. Pour nous faire pardonner, nous vous partageons cette vidéo live d'une grande artiste que l'on adore qui se nomme "HER". Enjoy ;)</p>
+    <p class="text-white font-weight-light mb-5">Recherchez un nouveau produit ci-dessous :</p>
+    {% include 'myapp/search_form.html' %}
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="https://www.youtube.com/embed/6m8Pi4RFU7g" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</header>
+{% endblock %}

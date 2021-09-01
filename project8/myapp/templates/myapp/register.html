@@ -1,0 +1,15 @@
+{% extends 'myapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<header class="second1 bg-primary" id="about">
+  <div class="container">
+    <form method="POST" class="form-group" style="margin: 30px";>
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-success">Valider</button>
+    </form>
+  </div>
+</header>
+{% endblock %}

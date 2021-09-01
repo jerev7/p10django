@@ -1,0 +1,78 @@
+{% extends 'myapp/second_page.html' %}
+
+{% block second1 %}
+{% load static %}
+	<div class="row justify-content-center">
+		<p class="text-white font-weight-light mb-5" style="font-size: 150%">Produit sélectionné : {{ product_selected.name }}</p>
+	</div>
+	<div class="row justify-content-center">
+		<div style="position: relative">
+			<div style="z-index: 1">
+				<img class="center-block" src="{{ product_selected.image_url }}" width="150" height="150" alt="{{ product_selected.name }}">
+			</div>
+			<div style="position: absolute; left: 140px; top: -15px; height: 0px; z-index: 2">
+				<img src="{% static product_selected.nutriscore_letter_url %}" alt="nutriscore">
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block second2 %}
+  <div class="col-sm-6 text-center">
+    <div class="container" style="margin: 15px">
+      <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+          <span class="text-white-75 font-weight-light mb-5" style="font-size: 150%">Nutriscore</span>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div style="margin: 15px">
+          <img src="{% static product_selected.nutriscore_complete_url %}" alt="nutriscore_complete">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 text-center">
+    <div class="container" style="margin: 15px">
+      <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+          <span class="text-white-75 font-weight-light mb-5" style="font-size: 150%">Repères nutritionnels pour 100g :</span>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+          <span class="text-white-75 font-weight-light mb-5">Valeur énergétique : {{ product_selected.energy_value }} {{ product_selected.energy_unit }}</span>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+          <span class="text-white-75 font-weight-light mb-5">Sucres (en grammes) : {{ product_selected.sugars_100g }}</span>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+          <span class="text-white-75 font-weight-light mb-5">Graisses (en grammes) : {{ product_selected.fat_100g }}</span>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+          <span class="text-white-75 font-weight-light mb-5">Graisses saturées (en grammes) : {{ product_selected.saturated_fat_100g }}</span>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+          <span class="text-white-75 font-weight-light mb-5">Protéines (en grammes) : {{ product_selected.proteins }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin: 45px">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center">
+        <a target="_blank" href="{{ product_selected.url_offacts }}">
+          <span class="text-white-75 font-weight-light mb-5" style="border: 1px solid white; padding: 5px;font-size: 175%">Voir la fiche d'Openfoodfacts</span>
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
