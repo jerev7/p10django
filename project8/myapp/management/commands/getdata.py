@@ -35,8 +35,14 @@ def get_product(category, url):
             new_entry["name"] = product["product_name_fr"]
             new_entry["category"] = category
             new_entry["url_offacts"] = product["url"]
-            new_entry["energy_value"] = float(product["nutriments"]["energy_value"])
-            new_entry["energy_unit"] = product["nutriments"]["energy_unit"]
+            try:
+                new_entry["energy_value"] = float(product["nutriments"]["energy_value"])
+            except:
+                new_entry["energy_value"] = 0
+            try:
+                new_entry["energy_unit"] = product["nutriments"]["energy_unit"]
+            except:
+                new_entry["energy_unit"] = "not found"
             new_entry["sugars_100g"] = float(product["nutriments"]["sugars_100g"])
             new_entry["fat_100g"] = float(product["nutriments"]["fat_100g"])
             new_entry["saturated_fat_100g"] = float(product["nutriments"]["saturated-fat_100g"])
