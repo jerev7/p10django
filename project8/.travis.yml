@@ -1,6 +1,6 @@
 language: python
 python:
-  - '3.8'
+  - '3.5'
 
 # safelist
 branches:
@@ -16,4 +16,4 @@ services:
 env: DJANGO_SETTINGS_MODULE=project8.settings.travis
 
 script:
-  - ./project8/manage.py test
+  - ./manage.py test
