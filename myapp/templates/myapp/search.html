@@ -1,0 +1,13 @@
+{% extends 'myapp/second_page.html' %}
+
+{% block second1 %}
+	<div class="row justify-content-center">
+		<p id="product_searched" class="text-white font-weight-light mb-5" style="font-size: 150%"><strong>Produit recherché : {{ query }}</strong></p>
+	</div>
+	<div class="row justify-content-center">
+		<p class="text-white font-weight-light mb-5" style="font-size: 150%">Sélectionnez votre produit ci-dessous</p>
+	</div>
+{% endblock %}
+{% block second2 %}
+    {% include 'myapp/search_list.html' %}
+{% endblock %}
