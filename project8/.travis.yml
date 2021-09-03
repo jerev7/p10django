@@ -5,10 +5,6 @@ python:
 before_script:
     - pip install -r requirements.txt
 
-branches:
-    only:
-        - staging
-
 env: DJANGO_SETTINGS_MODULE="project8.settings.travis"
 
 services:
