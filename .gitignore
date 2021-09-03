@@ -1,1 +1,3 @@
 env/
+__pycache__
+project8/project8/settings/production.py
