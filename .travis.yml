@@ -1,6 +1,6 @@
 language: python
 python:
-  - '3.8.10'
+  - '3.8'
 
 # safelist
 branches:
@@ -13,7 +13,7 @@ before_script:
 services:
   - postgresql
 
-env: DJANGO_SETTINGS_MODULE=project8.settings.travis
+env: DJANGO_SETTINGS_MODULE=project8.project8.settings.travis
 
 script:
-  - ./manage.py test
+  - ./project/8manage.py test
