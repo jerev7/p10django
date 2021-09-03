@@ -15,7 +15,7 @@ import os
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'project8.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'p9db',
-        'USER': 'user1',
-        'PASSWORD': 'newSally_9',
-        'HOST': 'localhost',
+        'NAME': 'project8',
+        'USER': 'jeremiev',
+        'PASSWORD': '',
+        'HOST': '',
         'PORT': '5432'
     }
 }
