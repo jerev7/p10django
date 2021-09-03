@@ -1,3 +1,4 @@
 env/
 __pycache__
 project8/project8/settings/production.py
+project8/geckodriver.log

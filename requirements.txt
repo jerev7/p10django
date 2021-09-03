@@ -17,6 +17,7 @@ py==1.10.0
 pyparsing==2.4.7
 pytz==2020.4
 requests==2.25.1
+selenium==3.141.0
 sqlparse==0.4.1
 toml==0.10.2
 urllib3==1.26.5
