@@ -16,4 +16,4 @@ services:
 env: DJANGO_SETTINGS_MODULE=project8.project8.settings.travis
 
 script:
-  - ./project/8manage.py test
+  - ./project8/manage.py test
