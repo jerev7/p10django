@@ -6,6 +6,8 @@ import logging
 
 
 # Create your views here.
+from sentry_sdk import add_breadcrumb
+
 
 logger = logging.getLogger(__name__)
 
@@ -74,10 +76,15 @@ def search(request):
         'products': products,
         'query': query
     }
-    logger.info('New search', exc_info=True, extra={
-        # Optionally pass a request and we'll grab any information we can
-        'request': query,
-    })
+    # logger.info('New search', exc_info=True, extra={
+    #     # Optionally pass a request and we'll grab any information we can
+    #     'request': query,
+    # })
+    add_breadcrumb(
+        category='user_query',
+        message='someone has search ---> %s' % query,
+        level='info',
+    )
     return render(request, 'myapp/search.html', context)
 
 
