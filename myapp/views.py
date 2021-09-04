@@ -15,6 +15,7 @@ def index(request):
 
 
 def legal(request):
+    zerzoprpo
     return render(request, 'myapp/legal.html')
 
 
