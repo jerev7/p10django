@@ -53,6 +53,17 @@ def product_detail(request, product_id):
 
 def search(request):
     query = request.GET.get('query')
+    user = request.user
+    if user.is_authenticated:
+        user_name = user.username
+        user_email = user.email
+    else:
+        user_name = "(user not logged in)"
+        user_email = "no email available"
+    logger.info(f"The User {user_name} ({user_email}) searched : {query} ", exc_info=True, extra={
+        # Optionally pass a request and we'll grab any information we can
+        'request': query,
+    })
     if not query:
         product_list = Products.objects.all()
     else:
@@ -75,10 +86,7 @@ def search(request):
         'products': products,
         'query': query
     }
-    logger.info('New search', exc_info=True, extra={
-        # Optionally pass a request and we'll grab any information we can
-        'request': query,
-    })
+
     return render(request, 'myapp/search.html', context)
 
 

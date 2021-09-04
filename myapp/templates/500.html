@@ -1,8 +1,12 @@
 {% extends 'myapp/base.html' %}
 {% block content %}
-    <p><em>Oops ! I did it again.</em></p>
-    <p>Une erreur s'est produite. Nous sommes actuellement en liaison directe avec Britney pour investiguer sur les causes du drame.</p>
-    <div class="embed-responsive embed-responsive-16by9">
-      <iframe src="https://www.youtube.com/embed/CduA0TULnow" frameborder="0" allowfullscreen></iframe>
-    </div>
+{% load static %}
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row justify-content-center">
+      <p class="text-white font-weight-light mb-5" style="margin-top: 15px">Hum.... Something went wrong...</p>
+      <p class="text-white font-weight-light mb-5" style="margin: 10px">Go back to <a href="/">home page</a></p>
+    </div> 
+  </div>
+</header>
 {% endblock %}
