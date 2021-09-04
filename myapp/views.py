@@ -12,7 +12,6 @@ def index(request):
 
 
 def legal(request):
-    ouech
     return render(request, 'myapp/legal.html')
 
 
