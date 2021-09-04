@@ -12,6 +12,7 @@ def index(request):
 
 
 def legal(request):
+    zrirop
     return render(request, 'myapp/legal.html')
 
 
