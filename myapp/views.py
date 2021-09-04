@@ -61,10 +61,14 @@ def search(request):
     else:
         user_name = "(user not logged in)"
         user_email = "no email available"
-    logger.info(f"The User {user_name} ({user_email}) searched : {query} ", exc_info=True, extra={
+
+    logger.info(f"New search : {query}", exc_info=True, extra={
         # Optionally pass a request and we'll grab any information we can
         'request': query,
+        'user name': user_name,
+        'user_email': user_email
     })
+
     if not query:
         product_list = Products.objects.all()
     else:
