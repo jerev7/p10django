@@ -7,6 +7,7 @@ import logging
 
 # Create your views here.
 
+logger = logging.getLogger(__name__)
 
 def index(request):
     return render(request, 'myapp/index.html')
@@ -73,7 +74,7 @@ def search(request):
         'products': products,
         'query': query
     }
-    logging.info('New search', exc_info=True, extra={
+    logger.info('New search', exc_info=True, extra={
         # Optionally pass a request and we'll grab any information we can
         'request': query,
     })
