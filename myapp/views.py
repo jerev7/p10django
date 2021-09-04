@@ -11,11 +11,11 @@ import logging
 logger = logging.getLogger(__name__)
 
 def index(request):
-    zeoriu
     return render(request, 'myapp/index.html')
 
 
 def legal(request):
+    yezruy
     return render(request, 'myapp/legal.html')
 
 
