@@ -15,7 +15,6 @@ def index(request):
 
 
 def legal(request):
-    zerzoprpo
     return render(request, 'myapp/legal.html')
 
 
@@ -59,7 +58,7 @@ def search(request):
         user_name = user.username
         user_email = user.email
     else:
-        user_name = "(user not logged in)"
+        user_name = "user not logged in"
         user_email = "no email available"
 
     logger.info(f"New search : {query}", exc_info=True, extra={
