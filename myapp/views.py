@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
 from .models import Category, Products, Product_saved
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+import logging
 
 
 # Create your views here.
@@ -72,6 +73,10 @@ def search(request):
         'products': products,
         'query': query
     }
+    logging.info('New search', exc_info=True, extra={
+        # Optionally pass a request and we'll grab any information we can
+        'request': query,
+    })
     return render(request, 'myapp/search.html', context)
 
 
