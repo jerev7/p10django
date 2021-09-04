@@ -15,7 +15,6 @@ def index(request):
 
 
 def legal(request):
-    yezruy
     return render(request, 'myapp/legal.html')
 
 
