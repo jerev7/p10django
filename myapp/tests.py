@@ -6,6 +6,7 @@ from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import selenium.webdriver.support.ui as ui
+from selenium.webdriver import FirefoxOptions
 
 
 # Create your tests here.
