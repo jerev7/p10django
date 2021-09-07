@@ -13,4 +13,4 @@ class Command(BaseCommand):
         Product_saved.objects.all().delete()
         Products.objects.all().delete()
         Category.objects.all().delete()
-        self.stdout.write(self.style.SUCCESS('All data from Products and Category has been deleted'))
+        self.stdout.write(self.style.SUCCESS('All data from Products, Category, and Product_saved has been deleted'))
