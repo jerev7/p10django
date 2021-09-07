@@ -2,3 +2,4 @@ env/
 __pycache__
 project8/settings/production.py
 geckodriver.log
+myapp/migrations/
