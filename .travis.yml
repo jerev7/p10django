@@ -27,4 +27,5 @@ services:
 env: DJANGO_SETTINGS_MODULE=project8.settings.travis
 
 script:
+  - ./manage.py collectstatic
   - ./manage.py test
