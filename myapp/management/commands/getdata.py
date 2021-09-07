@@ -81,26 +81,29 @@ def get_product(category, url):
 
 def add_products_to_db(product_list):
     for element in product_list:
-        new_product = Products.objects.create(
-            name=element["name"],
-            nutriscore=element["nutriscore"],
-            image_url=element["image_url"],
-            url_offacts=element["url_offacts"],
-            energy_value=element["energy_value"],
-            energy_unit=element["energy_unit"],
-            sugars_100g=element["sugars_100g"],
-            fat_100g=element["fat_100g"],
-            saturated_fat_100g=element["saturated_fat_100g"],
-            proteins=element["proteins"],
-            nutriscore_letter_url=element["nutriscore_letter_url"],
-            nutriscore_complete_url=element["nutriscore_complete_url"]
-        )
-        category_check = Category.objects.filter(name=element["category"])
-        if not category_check.exists():
-            category = Category.objects.create(name=element["category"])
+        if Products.objects.filter(name=element["name"]).exists():
+            pass
         else:
-            category = category_check[0]
-        new_product.categories.add(category)
+            new_product = Products.objects.create(
+                name=element["name"],
+                nutriscore=element["nutriscore"],
+                image_url=element["image_url"],
+                url_offacts=element["url_offacts"],
+                energy_value=element["energy_value"],
+                energy_unit=element["energy_unit"],
+                sugars_100g=element["sugars_100g"],
+                fat_100g=element["fat_100g"],
+                saturated_fat_100g=element["saturated_fat_100g"],
+                proteins=element["proteins"],
+                nutriscore_letter_url=element["nutriscore_letter_url"],
+                nutriscore_complete_url=element["nutriscore_complete_url"]
+            )
+            category_check = Category.objects.filter(name=element["category"])
+            if not category_check.exists():
+                category = Category.objects.create(name=element["category"])
+            else:
+                category = category_check[0]
+            new_product.categories.add(category)
 
 class Command(BaseCommand):
 
