@@ -152,7 +152,7 @@ class PlayerFormTest(LiveServerTestCase):
         opts = FirefoxOptions()
         opts.add_argument("--headless")
         self.driver = webdriver.Firefox(firefox_options=opts)
-        self.driver.get("89.107.63.240")
+        self.driver.get("http://89.107.63.240")
         self.wait = ui.WebDriverWait(self.driver, 3000)
 
     def tearDown(self):
@@ -175,16 +175,14 @@ class PlayerFormTest(LiveServerTestCase):
                             .find_element_by_id('product_searched').text)
         self.assertEqual(product_searched, "Produit recherché : nutella")
         url = self.driver.current_url
-        self.assertEqual(url, "89.107.63.240"
-                              "/myapp/search/?query=nutella")
+        self.assertEqual(url, "http://89.107.63.240/myapp/search/?query=nutella")
 
         # selecting the first product
         self.driver.find_element_by_partial_link_text("Nutella").click()
         url = self.driver.current_url
-        self.assertEqual(url, "89.107.63.240/myapp/2/")
+        self.assertEqual(url, "http://89.107.63.240/myapp/2/")
 
         # see first product detail
         self.driver.find_element_by_partial_link_text("Pâte").click()
         url = self.driver.current_url
-        self.assertEqual(url, "89.107.63.240"
-                              "/myapp/product_detail/3/")
+        self.assertEqual(url, "http://89.107.63.240/myapp/product_detail/3/")
