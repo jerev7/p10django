@@ -7,11 +7,9 @@ addons:
   firefox: latest
 
 install:
-  - wget https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux64.tar.gz /home/travis/geckodriver-v0.29.1-linux64.tar.gz
-  - gzip -dk ~/geckodriver-v0.29.1-linux64.tar.gz
-  - tar -xzf ~/geckodriver-v0.29.1-linux64.tar ~/
+  - wget -N https://github.com/mozilla/geckodriver/releases/download/v0.29.1/geckodriver-v0.29.1-linux64.tar.gz -P ~/
+  - tar -xzf ~/geckodriver-v0.29.1-linux64.tar.gz -C ~/
   - rm ~/geckodriver-v0.29.1-linux64.tar.gz
-  - rm ~/geckodriver-v0.29.1-linux64.tar
   - sudo mv -f ~/geckodriver /usr/local/share
   - sudo chmod +x /usr/local/share/geckodriver
   - sudo ln -s /usr/local/share/geckodriver /usr/local/bin/geckodriver
