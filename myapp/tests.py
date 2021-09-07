@@ -152,11 +152,12 @@ class PlayerFormTest(LiveServerTestCase):
         self.driver.get("89.107.63.240")
         self.wait = ui.WebDriverWait(self.driver, 3000)
 
-    # def tearDown(self):
-    #     """
-    #     Closing the server
-    #     """
-    #     self.driver.quit()
+    def tearDown(self):
+        """
+        Closing the server
+        """
+        self.driver.quit()
+        
     def test_search_page(self):
         # find the elements you need to submit form
         search_test = "nutella"
