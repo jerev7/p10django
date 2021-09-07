@@ -148,7 +148,9 @@ class PlayerFormTest(LiveServerTestCase):
         """
         Setting up selenium server
         """
-        self.driver = webdriver.Firefox()
+        opts = FirefoxOptions()
+        opts.add_argument("--headless")
+        self.driver = webdriver.Firefox(firefox_options=opts)
         self.driver.get("89.107.63.240")
         self.wait = ui.WebDriverWait(self.driver, 3000)
 
@@ -157,7 +159,7 @@ class PlayerFormTest(LiveServerTestCase):
         Closing the server
         """
         self.driver.quit()
-        
+
     def test_search_page(self):
         # find the elements you need to submit form
         search_test = "nutella"
