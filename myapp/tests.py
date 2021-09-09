@@ -147,9 +147,9 @@ class SaveProductPageTestCase(TestCase):
 class PlayerFormTest(LiveServerTestCase):
 
     def setUp(self):
-        """
+        
         #Setting up selenium server
-        """
+        
         opts = FirefoxOptions()
         opts.add_argument("--headless")
         self.driver = webdriver.Firefox(firefox_options=opts)
@@ -157,9 +157,9 @@ class PlayerFormTest(LiveServerTestCase):
         self.wait = ui.WebDriverWait(self.driver, 3000)
 
     def tearDown(self):
-        """
+        
         #Closing the server
-        """
+        
         self.driver.quit()
 
     def test_search_page(self):
