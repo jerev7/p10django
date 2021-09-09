@@ -148,7 +148,7 @@ class PlayerFormTest(LiveServerTestCase):
 
     def setUp(self):
         """
-        Setting up selenium server
+        #Setting up selenium server
         """
         opts = FirefoxOptions()
         opts.add_argument("--headless")
@@ -158,7 +158,7 @@ class PlayerFormTest(LiveServerTestCase):
 
     def tearDown(self):
         """
-        Closing the server
+        #Closing the server
         """
         self.driver.quit()
 
