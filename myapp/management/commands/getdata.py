@@ -30,7 +30,7 @@ def get_product(category, url):
     my_products = response.json()["products"]
     # i = 0
     for product in my_products:
-        if 'product_name_fr' in product and product["product_name_fr"] != "":
+        if 'product_name_fr' in product and product["product_name_fr"] != "" and "image_front_url" in product:
             new_entry = {}
             new_entry["name"] = product["product_name_fr"]
             new_entry["category"] = category
@@ -65,10 +65,8 @@ def get_product(category, url):
                 new_entry["nutriscore"] = 4
             new_entry["nutriscore_letter_url"] = nutriscore_letter_url[new_entry["nutriscore"]]
             new_entry["nutriscore_complete_url"] = nutriscore_complete_url[new_entry["nutriscore"]]
-            if "image_front_url" in product:
-                new_entry["image_url"] = product["image_front_url"]
-            else:
-                new_entry["image_url"] = "myapp/assets/img/image_not_found.png" # mettre chaine vide et mettre le lien dans le front
+            new_entry["image_url"] = product["image_front_url"]
+            # mettre chaine vide et mettre le lien dans le front
             # i += 1
             # new_entry["compte"] = i
             final_list.append(new_entry)
@@ -114,5 +112,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         add_products_to_db(get_product("pates-a-tartiner-aux-noisettes", "https://fr.openfoodfacts.org/categorie/pates-a-tartiner-aux-noisettes/1.json"))
+        add_products_to_db(get_product("pizzas-tartes-salees-et-quiches","https://fr.openfoodfacts.org/categorie/pizzas-tartes-salees-et-quiches/1.json"))
+        add_products_to_db(get_product("saucissons-secs", "https://fr.openfoodfacts.org/categorie/saucissons-secs/1.json"))
+        add_products_to_db(get_product("poulets", "https://fr.openfoodfacts.org/categorie/poulets/1.json"))
+        add_products_to_db(get_product("fromages", "https://fr.openfoodfacts.org/categorie/fromages/1.json"))
 
-        self.stdout.write(self.style.SUCCESS('Successfully inserted in database'))
+        self.stdout.write(self.style.SUCCESS('Data successfully inserted in database'))
